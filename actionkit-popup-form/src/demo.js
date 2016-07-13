@@ -1,5 +1,10 @@
 $(document).ready(function() {
-  $('.js-actionkit-popup-form').on('click', function() {
-    console.log('button was clicked');
+  var modalHook = '.js-actionkit-popup-form';
+  var modalTemplate = '#actionkit-popup-form';
+  var actionKitPage = $(modalHook).data('actionkit-page');
+  
+  $(modalHook).on('click', function() {
+    $(modalTemplate).append('<h1>' + actionKitPage + '</h1>');
+    $(modalHook).modal();
   });
 });
