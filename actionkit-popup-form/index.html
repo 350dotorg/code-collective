@@ -8,19 +8,23 @@
 
   <link rel="stylesheet" href="lib/style.css"/>
   <link rel="stylesheet" href="src/demo.css"/>
-
-  <script src="vendor/jquery-3.0.0.min.js"></script>
-  <script src="lib/modal.js"></script>
-  <script src="src/demo.js"></script>
 </head>
 <body>
   <div class="demo-content">
     <div class="demo-button">
-      <a href="#" class="js-actionkit-popup-form button" data-modal-source="#actionkit-popup-form" data-actionkit-page="sweden-kiitg-pledge">
+      <a href="#" class="js-actionkit-popup-form button" data-modal-source="#modal-content" data-actionkit-page="sweden-kiitg-pledge">
         Click to Sign Up
       </a>
     </div>
-    <div id="actionkit-popup-form" style="display: none"></div>
   </div>
+
+  <div id="modal-content">
+    <h1>Title</h1>
+    <p>some paragraph text</p>
+  </div>
+
+  <script src="vendor/jquery-3.0.0.min.js"></script>
+  <script src="lib/modal.js"></script>
+  <script src="src/demo.js"></script>
 </body>
 </html>
