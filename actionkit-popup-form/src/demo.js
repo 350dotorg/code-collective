@@ -5,4 +5,7 @@ $(document).ready(function() {
   var modalContent = $('#modal-content')
 
   $(modalHook).modal();
+
+  $.getJSON("http://act.350.org/act/sweden-kiitg-pledge/?template_set=json_form_data&jsonp=?", function(result){
+  });
 });
