@@ -19,9 +19,9 @@
         modalOuterClasses = modalOuterClassesAttr;
       }
       // get the modal content, wrap it in a div, and copy the HTML to a variable
-      var modalContent = $(modalSourceID).wrap('<div/>').parent().html();
+      var modalContent = $(modalSourceID).clone(true);
       // assemble the outer and inner modal wrappers around the content
-      var modal = '<div class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a>' + modalContent + '</div></div>';
+      var modal = '<div class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a></div></div>';
 
       // set up the click event
       $(this).on('click', function(e) {
@@ -29,9 +29,14 @@
 
         // append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
         // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
-        $(modal).appendTo('body').animate({borderRightWidth: 0}, 10, function() {
+        $modal =  $(modal);
+        $modal.appendTo('body');
+        modalContent.insertAfter('.modal-close');
+
+        $modal.animate({borderRightWidth: 0}, 10, function() {
           $(this).addClass('open').children('.section-inner').children().show();
         });
+
         // set up the "close modal" function
         function modalClose() {
           $('body').removeClass('no-scroll');
