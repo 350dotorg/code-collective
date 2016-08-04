@@ -29,7 +29,14 @@ function createIntroText(text) {
 }
 
 function createForm(fields) {
-  return $('<form></form>').append(fields);
+  var $form = $('<form></form>').append(fields, $('<input type="submit" value="Submit"/>'));
+
+  $form.submit(function(e) {
+    e.preventDefault();
+    console.log('Submitting form...');
+  });
+
+  return $form;
 }
 
 function parseFields(data) {
