@@ -29,7 +29,7 @@
 
         // append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
         // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
-        $modal =  $(modal);
+        $modal = $(modal);
         $modal.appendTo('body');
         modalContent.insertAfter('.modal-close');
 
