@@ -28,8 +28,14 @@ $(document).ready(function() {
   }
 
   function toFormField(fieldData) {
-    const label = $(`<div><label>${fieldData.label}</label></div>`);
-    return label.append($(fieldData.tag));
+    var label = $(`<div><label>${fieldData.label}</label></div>`);
+    var input = $(fieldData.tag);
+
+    if (fieldData.required) {
+      input.prop('required', true);
+    }
+
+    return label.append(input);
   }
 
   function createForm(fields) {
